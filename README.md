@@ -1,1 +1,1 @@
-The Branch test contains the terraform scripts that is used to create different resources in AWS.
+This branch showcases hands-on Terraform usage for AWS infrastructure automation. It includes modules for compute, storage, and identity management, following best practices for modularity and state management.
