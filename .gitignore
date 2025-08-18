@@ -19,3 +19,4 @@ terraform.tfvars.json
 # Ignore any generated files
 *.log
 *.bak
+bkey
