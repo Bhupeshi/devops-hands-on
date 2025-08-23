@@ -1,0 +1,7 @@
+# created a EC instance 
+# created security group
+# attached securtiy group to EC2 instance
+# downloaded Graph from https://graphviz.gitlab.io/download/ set the environment variable after downloading
+# check in the new terminal from the command dot -V
+# run command:  "terraform graph -type=plan > graph.dot" generates a visual representation (in DOT format) of the planned Terraform resource changes (the dependency graph for your next apply).
+# "dot -Tpng graph.dot -o graph.png"  to visualize your Terraform infrastructure plan as a graph.

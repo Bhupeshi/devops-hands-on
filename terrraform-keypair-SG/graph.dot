@@ -1,0 +1,38 @@
+digraph {
+
+	compound = "true"
+
+	newrank = "true"
+
+	subgraph "root" {
+
+		"[root] aws_instance.web (expand)" [label = "aws_instance.web", shape = "box"]
+
+		"[root] aws_key_pair.first_key (expand)" [label = "aws_key_pair.first_key", shape = "box"]
+
+		"[root] aws_security_group.tf_sg_ssh (expand)" [label = "aws_security_group.tf_sg_ssh", shape = "box"]
+
+		"[root] data.aws_ssm_parameter.amazon_linux (expand)" [label = "data.aws_ssm_parameter.amazon_linux", shape = "box"]
+
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" [label = "provider[\"registry.terraform.io/hashicorp/aws\"]", shape = "diamond"]
+
+		"[root] aws_instance.web (expand)" -> "[root] aws_security_group.tf_sg_ssh (expand)"
+
+		"[root] aws_instance.web (expand)" -> "[root] data.aws_ssm_parameter.amazon_linux (expand)"
+
+		"[root] aws_key_pair.first_key (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+
+		"[root] aws_security_group.tf_sg_ssh (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+
+		"[root] data.aws_ssm_parameter.amazon_linux (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_instance.web (expand)"
+
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_key_pair.first_key (expand)"
+
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)"
+
+	}
+
+}
+
