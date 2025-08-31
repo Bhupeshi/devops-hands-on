@@ -1,0 +1,12 @@
+#import command in terraform helps to import the resource in terraform directory 
+#if we have created any resource manually from the AWS Console or CLI.
+# Key Notes
+#- You must define the resource block in your .tf files before importing.
+#- terraform import does not generate configuration — it only updates the state file.
+#- After import, run terraform plan to verify the state matches your config.
+#- Useful for migrating manually created resources into IaC workflows 
+
+
+# when we run the import command it will create a .tfstate file where all the instance confiuration are mentioned that we have imported
+
+#if we want to modify any configuration in our instance using terraform then we can copy few values like ami/#instance_type/key_name/tags
