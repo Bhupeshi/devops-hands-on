@@ -1,0 +1,4 @@
+Terraform Refresh reads the current setting from all managed remote objects and updates the Terraform state to match.
+
+used command: terraform apply -refresh-only
+this command will only change the state file.
