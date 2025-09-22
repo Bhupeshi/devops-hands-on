@@ -1,0 +1,22 @@
+# Ignore Terraform state files
+*.tfstate
+*.tfstate.backup
+
+# Ignore crash logs
+crash.log
+
+# Ignore Terraform provider binaries and plugin directories
+.terraform/
+*.exe
+
+# Ignore override files and sensitive config
+terraform.tfvars
+terraform.tfvars.json
+
+# Ignore plan output
+*.tfplan
+
+# Ignore any generated files
+*.log
+*.bak
+bkey
