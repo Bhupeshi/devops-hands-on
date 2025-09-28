@@ -1,0 +1,35 @@
+# This document will help how to install docker in production server
+# Install vmware workstation pro
+# Install the ISO image of UBUNTU, we need to create a VM and attach that ISO image
+# Open UBUNTU and take the IP address and create a connection using MOBAXTERM.
+# install docker on the MOBAXTERM connection , this will automatically create a group with the name of docker.
+# install some images from docker hub 
+
+
+# Relationship between container and process 
+container is a secure environment where process runs, If we kill any process the container will also stop unless the container has only process.
+
+
+# to run a docker image we can use below commands (using as root user now)
+1. docker run repository.tag    (but this will run in your console in a running state , if you exit then container will stop)
+2. docker run -d repository.tag ( this will run in the background , d stands for deatached mode)
+3. docker run -d --name new-name repository.tag   (to give a container new name can use this command)
+4. docker inspect container-name (this will show all the deatils of a container like user/path/ports)
+5. docker ps (this will display the running container)
+6. docker ps -a (this command will show all the running/stopped container)
+7. docker exec  -it container-name /bin/sh  (this command is used to run linux commands inside a running container)(here "it" stands for interactive terminal)
+
+
+# To give permission to any user of the group docker.
+usermod -aG docker bhupesh
+now user need to open new session to check if added in the group
+
+
+#container re-start policies
+like always/unless-stopped
+whenever a system service restarted then always container will be UP if set as always, but if the container set as unless-stopped, if stoped earlier before re-strating the service will not come up.
+docker exec -d --name boxone --restart always nginx:latest
+docker exec -d --name boxone2 --restart unless-stopped nginx:latest
+
+
+#whenever we run the image , do not run with the root user in 
