@@ -32,4 +32,14 @@ docker exec -d --name boxone --restart always nginx:latest
 docker exec -d --name boxone2 --restart unless-stopped nginx:latest
 
 
-#whenever we run the image , do not run with the root user in 
+#whenever we run the image , do not run with the root user because when root user run as below command using privileged then it can change system level variables/permissions
+docker run -it --name demop --privileged httpd:latest /bin/sh
+# cat /proc/sys/vm/swappiness
+60
+# echo 61 > /proc/sys/vm/swappiness
+# cat /proc/sys/vm/swappiness
+61
+
+
+#The container will run as a root is defined in the image, to change that we can use below command:
+docker run -it --name boxone -u 1001 httpd:latest /bin/sh
